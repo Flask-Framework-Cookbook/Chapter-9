@@ -4,7 +4,6 @@ from flask_wtf.file import FileField, FileRequired
 from wtforms import TextField, DecimalField, SelectField
 from wtforms.validators import InputRequired, NumberRange, ValidationError
 from wtforms.widgets import html_params, Select, HTMLString
-from flask_wtf import Form
 from flask_babel import lazy_gettext as _
 from my_app import db
 
