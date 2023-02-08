@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, g
 from flask_sqlalchemy import SQLAlchemy
 from flask_babel import Babel
 
@@ -18,7 +18,12 @@ app.config['WTF_CSRF_SECRET_KEY'] = 'random key for form'
 db = SQLAlchemy(app)
 
 
+def get_locale():
+    return g.get('current_lang', 'en')
+
+
 babel = Babel(app)
+babel.init_app(app, locale_selector=get_locale)
 
 app.secret_key = 'some_random_key'
 
